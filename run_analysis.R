@@ -66,12 +66,12 @@ colNames = colnames(train_test_master_data)
 
 # create placeholder for index of desired columns only
 index_of_desired_columns = 
-				(
-				 grepl("activity_id",colNames)  | # only activity_id
-         grepl("subject_id",colNames)   | # only subject_id
-				 grepl("-mean\\(\\)$",colNames) | # ends with -mean() only
-				 grepl("-std\\(\\)$",colNames)    # ends with -std() only
-				)
+(
+  grepl("activity_id",colNames)  | # only activity_id
+  grepl("subject_id",colNames)   | # only subject_id
+  grepl("-mean\\(\\)$",colNames) | # ends with -mean() only
+  grepl("-std\\(\\)$",colNames)    # ends with -std() only
+)
 
 # get desired data from the desired columns indicated with true flag
 train_test_master_data = train_test_master_data[index_of_desired_columns==TRUE]
