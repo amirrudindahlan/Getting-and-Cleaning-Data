@@ -90,6 +90,9 @@ for (i in 1:length(column_names_of_train_test_master_data))
   column_names_of_train_test_master_data[i] = gsub("\\()","",column_names_of_train_test_master_data[i])
   column_names_of_train_test_master_data[i] = gsub("-std$","_Standard_Deviation",column_names_of_train_test_master_data[i])
   column_names_of_train_test_master_data[i] = gsub("-mean","_Mean",column_names_of_train_test_master_data[i])
+  column_names_of_train_test_master_data[i] = gsub("tBody","timeBody",column_names_of_train_test_master_data[i])
+  column_names_of_train_test_master_data[i] = gsub("tGravity","timeGravity",column_names_of_train_test_master_data[i])
+  column_names_of_train_test_master_data[i] = gsub("fBody","frequencyBody",column_names_of_train_test_master_data[i])
 }
 
 # rename columns with new names
@@ -109,30 +112,30 @@ train_test_master_data_df = tbl_df(train_test_master_data)
 ordered_data <- train_test_master_data_df %.% 
 			  group_by(activity_id, subject_id)%.%	
 			  summarize(
-				tBodyAccMag_Mean=mean(tBodyAccMag_Mean),
-				tBodyAccMag_Standard_Deviation=mean(tBodyAccMag_Standard_Deviation),
-				tGravityAccMag_Mean=mean(tGravityAccMag_Mean),
-				tGravityAccMag_Standard_Deviation=mean(tGravityAccMag_Standard_Deviation),
-				tBodyAccJerkMag_Mean=mean(tBodyAccJerkMag_Mean),
-				tBodyAccJerkMag_Standard_Deviation=mean(tBodyAccJerkMag_Standard_Deviation),
-				tBodyGyroMag_Mean=mean(tBodyGyroMag_Mean),
-				tBodyGyroMag_Standard_Deviation=mean(tBodyGyroMag_Standard_Deviation),
-				tBodyGyroJerkMag_Mean=mean(tBodyGyroJerkMag_Mean),
-				tBodyGyroJerkMag_Standard_Deviation=mean(tBodyGyroJerkMag_Standard_Deviation),
-				fBodyAccMag_Mean=mean(fBodyAccMag_Mean),
-				fBodyAccMag_Standard_Deviation=mean(fBodyAccMag_Standard_Deviation),
-				fBodyBodyAccJerkMag_Mean=mean(fBodyBodyAccJerkMag_Mean),
-				fBodyBodyAccJerkMag_Standard_Deviation=mean(fBodyBodyAccJerkMag_Standard_Deviation),
-				fBodyBodyGyroMag_Mean=mean(fBodyBodyGyroMag_Mean),
-				fBodyBodyGyroMag_Standard_Deviation=mean(fBodyBodyGyroMag_Standard_Deviation),
-				fBodyBodyGyroJerkMag_Mean=mean(fBodyBodyGyroJerkMag_Mean),
-				fBodyBodyGyroJerkMag_Standard_Deviation=mean(fBodyBodyGyroJerkMag_Standard_Deviation)
+				timeBodyAccMag_Mean=mean(timeBodyAccMag_Mean),
+				timeBodyAccMag_Standard_Deviation=mean(timeBodyAccMag_Standard_Deviation),
+				timeGravityAccMag_Mean=mean(timeGravityAccMag_Mean),
+				timeGravityAccMag_Standard_Deviation=mean(timeGravityAccMag_Standard_Deviation),
+				timeBodyAccJerkMag_Mean=mean(timeBodyAccJerkMag_Mean),
+				timeBodyAccJerkMag_Standard_Deviation=mean(timeBodyAccJerkMag_Standard_Deviation),
+				timeBodyGyroMag_Mean=mean(timeBodyGyroMag_Mean),
+				timeBodyGyroMag_Standard_Deviation=mean(timeBodyGyroMag_Standard_Deviation),
+				timeBodyGyroJerkMag_Mean=mean(timeBodyGyroJerkMag_Mean),
+				timeBodyGyroJerkMag_Standard_Deviation=mean(timeBodyGyroJerkMag_Standard_Deviation),
+				frequencyBodyAccMag_Mean=mean(frequencyBodyAccMag_Mean),
+				frequencyBodyAccMag_Standard_Deviation=mean(frequencyBodyAccMag_Standard_Deviation),
+				frequencyBodyBodyAccJerkMag_Mean=mean(frequencyBodyBodyAccJerkMag_Mean),
+				frequencyBodyBodyAccJerkMag_Standard_Deviation=mean(frequencyBodyBodyAccJerkMag_Standard_Deviation),
+				frequencyBodyBodyGyroMag_Mean=mean(frequencyBodyBodyGyroMag_Mean),
+				frequencyBodyBodyGyroMag_Standard_Deviation=mean(frequencyBodyBodyGyroMag_Standard_Deviation),
+				frequencyBodyBodyGyroJerkMag_Mean=mean(frequencyBodyBodyGyroJerkMag_Mean),
+				frequencyBodyBodyGyroJerkMag_Standard_Deviation=mean(frequencyBodyBodyGyroJerkMag_Standard_Deviation)
 			)		
 
-# Merging the tidyData with activityType to include descriptive acitvity names
+# merge data by activity_id
 ordered_data = merge(ordered_data,activity_data,by='activity_id',all.x=TRUE)
 
-#move activity name to 3rd column
+# move activity name to 3rd column
 tidy_data = c(ordered_data[1:2],ordered_data[21],ordered_data[3:20])
 
 # create file tidy_data.txt
