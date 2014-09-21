@@ -20,14 +20,14 @@ output: html_document
 11."tBodyGyroMag_Standard_Deviation" - SD time of body gyroscope magnitude              
 12."tBodyGyroJerkMag_Mean" - mean time of body gyroscope jerk magnitude                       
 13."tBodyGyroJerkMag_Standard_Deviation" - SD time of body gyroscope jerk magnitude       
-14."fBodyAccMag_Mean" - mean time of body accelerometer magnitude                         
-15."fBodyAccMag_Standard_Deviation" - SD time of accelerometer magnitude          
-16."fBodyBodyAccJerkMag_Mean" - mean time of body accelerometer jerk magnitude                   
-17."fBodyBodyAccJerkMag_Standard_Deviation" - SD time of body accelerometer jerk magnitude     
-18."fBodyBodyGyroMag_Mean" - mean time of body gyroscope magnitude                   
-19."fBodyBodyGyroMag_Standard_Deviation" - SD time of body gyroscope magnitude        
-20."fBodyBodyGyroJerkMag_Mean" - mean time of body gyroscope jerk magnitude                  
-21."fBodyBodyGyroJerkMag_Standard_Deviation" - SD time of body gyroscope jerk magnitude     
+14."fBodyAccMag_Mean" - mean frequency of body accelerometer magnitude                         
+15."fBodyAccMag_Standard_Deviation" - SD frequency of accelerometer magnitude          
+16."fBodyBodyAccJerkMag_Mean" - mean frequency of body accelerometer jerk magnitude                   
+17."fBodyBodyAccJerkMag_Standard_Deviation" - SD frequency of body accelerometer jerk magnitude     
+18."fBodyBodyGyroMag_Mean" - mean frequency of body gyroscope magnitude                   
+19."fBodyBodyGyroMag_Standard_Deviation" - SD frequency of body gyroscope magnitude        
+20."fBodyBodyGyroJerkMag_Mean" - mean frequency of body gyroscope jerk magnitude                  
+21."fBodyBodyGyroJerkMag_Standard_Deviation" - SD frequency of body gyroscope jerk magnitude     
 
 
 
